@@ -29,7 +29,7 @@ class _DetailsPageState extends State<DetailsPage> {
                 ? Image.network(
                     widget.cardDetails["urlToImage"].toString() != "null"
                         ? widget.cardDetails["urlToImage"].toString()
-                        : "https://lh3.googleusercontent.com/proxy/Se-T1jlRIpZUE5SimQEFQvVCFb4_uGAEJlgEyhxpcw70oU252r_mZTaBssKTQfHfFZ03Ob6RtHYiB6kk5tdduBKgzQgeAw_Ok7bY6aIrXoqHWcKWJChEMIkv23FZEi-Oyw",
+                        : "http://lh3.googleusercontent.com/proxy/Se-T1jlRIpZUE5SimQEFQvVCFb4_uGAEJlgEyhxpcw70oU252r_mZTaBssKTQfHfFZ03Ob6RtHYiB6kk5tdduBKgzQgeAw_Ok7bY6aIrXoqHWcKWJChEMIkv23FZEi-Oyw",
                     fit: BoxFit.fill,
                   )
                 : Container(),
