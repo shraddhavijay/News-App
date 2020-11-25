@@ -6,7 +6,6 @@ import 'package:newsapp/theme/colors.dart';
 import 'newsCard.dart';
 
 class ListOfNews extends StatefulWidget {
-
   final category;
   ListOfNews({Key key, this.category});
   @override
@@ -14,16 +13,12 @@ class ListOfNews extends StatefulWidget {
 }
 
 class _ListOfNewsState extends State<ListOfNews> {
- 
-  List entries=[];
+  List entries = [];
   final List<int> colorCodes = <int>[600, 500, 100];
 
-
-  generateList() async{
-      entries= await getNewsData(widget.category);  
-      debugPrint(entries.toString());
-      setState(() {    
-      });
+  generateList() async {
+    entries = await getNewsData(widget.category);
+    setState(() {});
   }
 
   @override
@@ -32,34 +27,38 @@ class _ListOfNewsState extends State<ListOfNews> {
     generateList();
   }
 
-
   @override
   Widget build(BuildContext context) {
-
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
- 
 
-    return entries.length!=0?Container(
-        color: detailsPageBackground,
-      child: width<height? ListView.separated(
-        padding: const EdgeInsets.all(8),
-        itemCount: entries.length,
-        itemBuilder: (BuildContext context, int index) {
-          return NewsCard(cardDetails:entries[index]);
-        },
-        separatorBuilder: (BuildContext context, int index) => const SizedBox(height: 10,),
-      ): new GridView.builder(
-     itemCount: entries.length,
-    gridDelegate:
-      new SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-         childAspectRatio: 1.55,
-    ),
-     itemBuilder: (BuildContext context, int index) {
-          
-          return NewsCard(cardDetails:entries[index]);
-        },)
-    ):Center(child: CircularProgressIndicator(),);
+    return entries.length != 0
+        ? Container(
+            color: detailsPageBackground,
+            child: width < height
+                ? ListView.separated(
+                    padding: const EdgeInsets.all(8),
+                    itemCount: entries.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return NewsCard(cardDetails: entries[index]);
+                    },
+                    separatorBuilder: (BuildContext context, int index) =>
+                        const SizedBox(
+                      height: 10,
+                    ),
+                  )
+                : new GridView.builder(
+                    itemCount: entries.length,
+                    gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      childAspectRatio: 1.55,
+                    ),
+                    itemBuilder: (BuildContext context, int index) {
+                      return NewsCard(cardDetails: entries[index]);
+                    },
+                  ))
+        : Center(
+            child: CircularProgressIndicator(),
+          );
   }
 }

@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:newsapp/services/launchUrl.dart';
 import 'package:newsapp/theme/colors.dart';
 
-Widget readMore(String url)
-{
+Widget readMore(String url) {
   return RaisedButton(
     onPressed: () {
-      launchURL(url);    
+      launchURL(url);
     },
     color: appbarTextColor,
     child: Padding(
@@ -19,12 +18,12 @@ Widget readMore(String url)
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w700,
-              color: Colors.white,
+              color: buttonTextColor,
             ),
           ),
           Icon(
             Icons.arrow_forward,
-            color: Colors.white,
+            color: buttonTextColor,
           )
         ],
       ),

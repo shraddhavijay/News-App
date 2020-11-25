@@ -4,7 +4,7 @@ import 'package:newsapp/theme/colors.dart';
 Widget newsTitle(String title, double size)
 {
   return Text(title,
-    style: TextStyle(color: appbarTextColor,
+    style: TextStyle(color: titleColor,
     fontSize: size,
     fontWeight: FontWeight.bold,
     ),
@@ -15,7 +15,7 @@ Widget newsTitle(String title, double size)
 Widget subTitle(String title, double size)
 {
   return Text(title,
-    style: TextStyle(color: Colors.grey[600],
+    style: TextStyle(color: subTitleColor,
     fontSize: size,
     fontWeight: FontWeight.bold,
     ),
@@ -26,7 +26,7 @@ Widget subTitle(String title, double size)
 Widget paragraphText(String title, double size)
 {
   return Text(title,
-    style: TextStyle(color: Colors.grey[600],
+    style: TextStyle(color: paragraphTextColor,
     fontSize: size,
     fontWeight: FontWeight.bold,
     ),
@@ -36,7 +36,7 @@ Widget paragraphText(String title, double size)
 Widget textWithUnderline(String title, double size)
 {
   return Text(title,
-    style: TextStyle(color: Colors.grey[600],
+    style: TextStyle(color: subTitleColor,
     fontSize: size,
     fontStyle: FontStyle.italic,
     decoration: TextDecoration.underline,

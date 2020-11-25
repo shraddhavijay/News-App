@@ -3,27 +3,23 @@ import 'package:flutter/material.dart';
 import 'package:bubble_tab_indicator/bubble_tab_indicator.dart';
 import 'package:newsapp/theme/colors.dart';
 import 'package:newsapp/widgets/listOfNews.dart';
+import 'package:newsapp/widgets/textStyles.dart';
 
 class HomePage extends StatefulWidget {
-
-  HomePage({Key key}) : super(key: key);
-
   @override
   State<StatefulWidget> createState() {
     return new HomeWidgetState();
   }
 }
 
-class HomeWidgetState extends State<HomePage> with TickerProviderStateMixin{
-
-
+class HomeWidgetState extends State<HomePage> with TickerProviderStateMixin {
   final List<Tab> tabs = <Tab>[
     new Tab(text: "Popular"),
     new Tab(text: "Latest"),
     new Tab(text: "Corona"),
     new Tab(text: "Politics"),
     new Tab(text: "Business"),
-    new Tab(text: "Travel"), 
+    new Tab(text: "Education"),
     new Tab(text: "Stock Market"),
     new Tab(text: "Fashion"),
     new Tab(text: "Television"),
@@ -45,36 +41,30 @@ class HomeWidgetState extends State<HomePage> with TickerProviderStateMixin{
 
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
       appBar: new AppBar(
-          title: Text("Home Page",
-            style: TextStyle(
-              color: appbarTextColor,
-            )),
+        title: newsTitle("World News",25),
         backgroundColor: appbarColor,
         bottom: new TabBar(
           isScrollable: true,
-         
-          unselectedLabelColor: Colors.grey,
-          labelColor: Colors.white,
-          
+          unselectedLabelColor: tabBarunSelectedLabelColor,
+          labelColor: tabBarLabelColor,
           indicatorSize: TabBarIndicatorSize.tab,
           indicator: new BubbleTabIndicator(
             indicatorHeight: 35.0,
             indicatorColor: appbarTextColor,
             tabBarIndicatorSize: TabBarIndicatorSize.tab,
           ),
-          
           tabs: tabs,
           controller: _tabController,
         ),
       ),
       body: new TabBarView(
         controller: _tabController,
-        children: tabs.map((Tab tab) { 
-          return ListOfNews(category:tab.text ,);
+        children: tabs.map((Tab tab) {
+          return ListOfNews(
+            category: tab.text,
+          );
         }).toList(),
       ),
     );
