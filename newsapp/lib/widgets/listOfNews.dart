@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:newsapp/services/getNewsData.dart';
+import 'package:newsapp/theme/colors.dart';
 
 import 'newsCard.dart';
 
@@ -34,15 +35,31 @@ class _ListOfNewsState extends State<ListOfNews> {
 
   @override
   Widget build(BuildContext context) {
+
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+ 
+
     return entries.length!=0?Container(
-      child: ListView.separated(
+        color: detailsPageBackground,
+      child: width<height? ListView.separated(
         padding: const EdgeInsets.all(8),
         itemCount: entries.length,
         itemBuilder: (BuildContext context, int index) {
           return NewsCard(cardDetails:entries[index]);
         },
-        separatorBuilder: (BuildContext context, int index) => const Divider(),
-      ),
+        separatorBuilder: (BuildContext context, int index) => const SizedBox(height: 10,),
+      ): new GridView.builder(
+     itemCount: entries.length,
+    gridDelegate:
+      new SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+         childAspectRatio: 1.55,
+    ),
+     itemBuilder: (BuildContext context, int index) {
+          
+          return NewsCard(cardDetails:entries[index]);
+        },)
     ):Center(child: CircularProgressIndicator(),);
   }
 }

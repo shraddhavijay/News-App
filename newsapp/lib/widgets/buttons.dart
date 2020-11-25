@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:newsapp/services/launchUrl.dart';
+import 'package:newsapp/theme/colors.dart';
 
 Widget readMore(String url)
 {
   return RaisedButton(
-    onPressed: () {},
-    
+    onPressed: () {
+      launchURL(url);    
+    },
+    color: appbarTextColor,
     child: Padding(
-      padding: EdgeInsets.all(10),
+      padding: EdgeInsets.all(15),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Text(
             'Continue Reading',
             style: TextStyle(
-              fontSize: 20,
+              fontSize: 16,
               fontWeight: FontWeight.w700,
               color: Colors.white,
             ),

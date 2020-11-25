@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:newsapp/services/getNewsData.dart';
+import 'package:newsapp/theme/colors.dart';
 import 'package:newsapp/widgets/buttons.dart';
 import 'package:newsapp/widgets/textStyles.dart';
 
@@ -16,13 +16,6 @@ class DetailsPage extends StatefulWidget {
 
 class _DetailsPageState extends State<DetailsPage> {
  
-  @override
-  void initState() {
-    super.initState();
-
-  }
-
-
   @override
   Widget build(BuildContext context) {
 
@@ -41,9 +34,7 @@ class _DetailsPageState extends State<DetailsPage> {
             snap: false,
             flexibleSpace: FlexibleSpaceBar(
               background: ClipRRect(
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(45),
-                    bottomRight: Radius.circular(45)),
+               
                 child: Map.from(widget.cardDetails).containsKey("urlToImage")?Image.network(
                   widget.cardDetails["urlToImage"].toString()!="null"?
                   widget.cardDetails["urlToImage"].toString()
@@ -59,19 +50,26 @@ class _DetailsPageState extends State<DetailsPage> {
             delegate: SliverChildBuilderDelegate((context, index) {
             
              return  Container(
-                padding: EdgeInsets.all(10),
+               color: detailsPageBackground,
+                padding: EdgeInsets.all(15),
                child: Column(
+                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                  crossAxisAlignment: CrossAxisAlignment.start,
                  children:[
-                    SizedBox(height: 10,),
-              subTitle(widget.cardDetails["publishedAt"]??"",13),
-                    SizedBox(height: 10,),
-                   newsTitle(widget.cardDetails["title"]??"",20),
-                SizedBox(height: 10,),
-              textWithUnderline(widget.cardDetails["author"]??"",15),
+
               SizedBox(height: 10,),
-              paragraphText(widget.cardDetails["description"]??"",15),
-              SizedBox(height: 20,),
+              subTitle(widget.cardDetails["publishedAt"]??"",15),
+                    SizedBox(height: 10,),
+                   newsTitle(widget.cardDetails["title"]??"",22),
+                SizedBox(height: 10,),
+              textWithUnderline(widget.cardDetails["author"]??"",16),
+              SizedBox(height: 10,),
+              paragraphText(widget.cardDetails["description"]??"",16),
+
+                SizedBox(height: 10,),
+              paragraphText(widget.cardDetails["content"]??"",16),
+              SizedBox(height: 30,),
+  
               readMore(widget.cardDetails["url"]),
                  ],      
               ));
