@@ -21,3 +21,26 @@ Widget subTitle(String title, double size)
     ),
   );
 }
+
+
+Widget paragraphText(String title, double size)
+{
+  return Text(title,
+    style: TextStyle(color: Colors.grey[600],
+    fontSize: size,
+    fontWeight: FontWeight.bold,
+    ),
+  );
+}
+
+Widget textWithUnderline(String title, double size)
+{
+  return Text(title,
+    style: TextStyle(color: Colors.grey[600],
+    fontSize: size,
+    fontStyle: FontStyle.italic,
+    decoration: TextDecoration.underline,
+    fontWeight: FontWeight.bold,
+    ),
+  );
+}

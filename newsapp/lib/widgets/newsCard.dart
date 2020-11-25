@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:newsapp/screens/detailsPage/detailsPage.dart';
 import 'package:newsapp/widgets/textStyles.dart';
 
 
@@ -15,7 +16,16 @@ class _NewsCardState extends State<NewsCard> {
  
   @override
   Widget build(BuildContext context) {
-             return Card(              
+             return GestureDetector(
+
+               onTap: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => DetailsPage(cardDetails: widget.cardDetails,)),
+                  );
+               },
+               
+               child: Card(              
             // height: MediaQuery.of(context).size.height/3,
             child:Column(
               children: [              
@@ -49,6 +59,6 @@ class _NewsCardState extends State<NewsCard> {
             ],)
             //color: Colors.amber[colorCodes[index]],
            
-          );    
+          ));    
   }
 }
