@@ -49,27 +49,27 @@ class _DetailsPageState extends State<DetailsPage> {
                 SizedBox(
                   height: 10,
                 ),
-                subTitle(widget.cardDetails["publishedAt"] ?? "", 15),
+                subTitle(widget.cardDetails["publishedAt"].toString() ?? "", 15),
                 SizedBox(
                   height: 10,
                 ),
-                newsTitle(widget.cardDetails["title"] ?? "", 22),
+                newsTitle(widget.cardDetails["title"].toString() ?? "", 22),
                 SizedBox(
                   height: 10,
                 ),
-                textWithUnderline("Article by:- "+widget.cardDetails["author"] ?? "", 16),
+                textWithUnderline("Article by:- "+(widget.cardDetails["author"] ?? "").toString(), 16),
                 SizedBox(
                   height: 10,
                 ),
-                paragraphText(widget.cardDetails["description"] ?? "", 16),
+                paragraphText(widget.cardDetails["description"].toString() ?? "", 16),
                 SizedBox(
                   height: 10,
                 ),
-                paragraphText(widget.cardDetails["content"] ?? "", 16),
+                paragraphText(widget.cardDetails["content"].toString() ?? "", 16),
                 SizedBox(
                   height: 30,
                 ),
-                readMore(widget.cardDetails["url"]),
+                readMore(widget.cardDetails["url"].toString()),
               ],
             ));
       }, childCount: 1))
