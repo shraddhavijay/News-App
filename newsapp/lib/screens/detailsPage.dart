@@ -57,7 +57,7 @@ class _DetailsPageState extends State<DetailsPage> {
                 SizedBox(
                   height: 10,
                 ),
-                textWithUnderline(widget.cardDetails["author"] ?? "", 16),
+                textWithUnderline("Article by:- "+widget.cardDetails["author"] ?? "", 16),
                 SizedBox(
                   height: 10,
                 ),
