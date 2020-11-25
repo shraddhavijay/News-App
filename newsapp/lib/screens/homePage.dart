@@ -43,7 +43,7 @@ class HomeWidgetState extends State<HomePage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
-        title: newsTitle("World News",25),
+        title: newsTitle("World News",22),
         backgroundColor: appbarColor,
         bottom: new TabBar(
           isScrollable: true,

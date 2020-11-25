@@ -14,7 +14,6 @@ class ListOfNews extends StatefulWidget {
 
 class _ListOfNewsState extends State<ListOfNews> {
   List entries = [];
-  final List<int> colorCodes = <int>[600, 500, 100];
 
   generateList() async {
     entries = await getNewsData(widget.category);
@@ -32,8 +31,8 @@ class _ListOfNewsState extends State<ListOfNews> {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
 
-    return entries.length != 0
-        ? Container(
+    return entries!=null
+        ? entries.length!=0?Container(
             color: detailsPageBackground,
             child: width < height
                 ? ListView.separated(
@@ -56,7 +55,9 @@ class _ListOfNewsState extends State<ListOfNews> {
                     itemBuilder: (BuildContext context, int index) {
                       return NewsCard(cardDetails: entries[index]);
                     },
-                  ))
+                  )): Center(
+            child: CircularProgressIndicator(),
+          )
         : Center(
             child: CircularProgressIndicator(),
           );
